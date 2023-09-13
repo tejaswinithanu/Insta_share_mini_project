@@ -53,14 +53,14 @@ class LoginForm extends Component {
       <div className="loginContainer">
         <img
           className="loginImage"
-          alt="Login"
+          alt="website login"
           src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1694414691/Login_Image_1x_vxhnbl.png"
         />
         <div className="rightContainer">
           <div className="logoContainer">
             <img
               className="logo"
-              alt="logo"
+              alt="website logo"
               src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1694414716/logo_bsgbfe.png"
             />
             <h1 className="heading">Insta Share</h1>
