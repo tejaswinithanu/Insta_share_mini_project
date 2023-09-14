@@ -1,0 +1,21 @@
+.storyContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.storyImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.userName {
+  color: #262626;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}

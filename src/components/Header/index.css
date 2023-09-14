@@ -1,0 +1,144 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 1px solid #cfcfcf;
+  padding-left: 15vw;
+  padding-right: 15vw;
+}
+
+@media all and (max-width: 1024px) {
+  .navbar {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: none;
+  }
+}
+
+.itemsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.siteLogo {
+  width: 59px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+@media all and (max-width: 1024px) {
+  .siteLogo {
+    width: 55px;
+    height: 28px;
+  }
+}
+
+.websiteName {
+  color: #262626;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@media all and (max-width: 1024px) {
+  .websiteName {
+    font-size: 18px;
+  }
+}
+
+.searchBox {
+  width: 214px;
+  height: 28px;
+  border-radius: 3px;
+  border: 1px solid #dbdbdb;
+  background: #fafafa;
+  padding-left: 8px;
+}
+
+.searchBar {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.searchIcon {
+  width: 34px;
+  height: 26px;
+  border-radius: 0px 2px 2px 0px;
+  border: none;
+  background: #dbdbdb;
+  color: #989898;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0;
+}
+
+.search {
+  width: 12px;
+  height: 12px;
+  margin-right: 0;
+}
+
+.navItem {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  color: #262626;
+  margin-left: 20px;
+}
+
+.linkItem {
+  text-decoration: none;
+}
+
+.logoutButton {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #4094ef;
+  color: white;
+  border: none;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  margin-left: 20px;
+  border-radius: 3px;
+  padding: 8px 20px;
+}
+
+.menuIcon {
+  font-size: 25px;
+  border: none;
+  background: none;
+}
+
+@media all and (min-width: 1025px) {
+  .menuIcon {
+    display: none;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .menuItems {
+    display: none;
+  }
+}
+
+.cancelButton {
+  background: none;
+  border: none;
+  font-size: 25px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
