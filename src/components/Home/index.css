@@ -1,0 +1,11 @@
+.homeContainer {
+  background-color: #fafafa;
+  min-height: 100vh;
+  padding: 25px 15vw;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
