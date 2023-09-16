@@ -9,3 +9,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.slick-prev:before,
+.slick-next:before {
+  color: #8e8f9c !important;
+}
+
+.slick-prev:hover::before,
+.slick-next:hover::before {
+  color: #111342 !important;
+}
