@@ -19,3 +19,10 @@
 .slick-next:hover::before {
   color: #111342 !important;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}

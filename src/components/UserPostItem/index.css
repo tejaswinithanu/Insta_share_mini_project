@@ -1,0 +1,53 @@
+.listItem {
+  list-style-type: none;
+  padding-left: 0;
+  border: 1px solid #bfbebb;
+  width: 100%;
+}
+
+.miniContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.profilePic {
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+}
+
+.profileName {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.postIcon {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  color: #475569;
+  border: none;
+}
+
+.postText {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.caption {
+  font-weight: 400;
+  width: 40%;
+}
+
+.createdTime {
+  color: #989898;
+}

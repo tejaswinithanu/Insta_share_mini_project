@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Slider from 'react-slick'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -87,6 +88,7 @@ class Home extends Component {
           commentedUserId: eachComment.user_id,
           comment: eachComment.comment,
         })),
+        createdAt: post.created_at,
       }))
       console.log(updatedData)
       this.setState({
@@ -115,11 +117,22 @@ class Home extends Component {
     )
   }
 
+  renderLoadingView = () => (
+    <div className="loader-container loader" data-testid="loader">
+      <Loader type="TailSpin" color="#4094EF" height={30} width={30} />
+    </div>
+  )
+
   render() {
+    const {storiesApiStatus} = this.state
     return (
       <>
         <Header />
-        <div className="homeContainer">{this.renderStories()}</div>
+        <div className="homeContainer">
+          {storiesApiStatus === apiStatusConstants.inProgress
+            ? this.renderLoadingView()
+            : this.renderStories()}
+        </div>
       </>
     )
   }
