@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import Header from '../Header'
 import UserStoryItem from '../UserStoryItem'
+import UserPostItem from '../UserPostItem'
 import './index.css'
 
 const apiStatusConstants = {
@@ -41,6 +42,7 @@ class Home extends Component {
       },
     }
     const response = await fetch(url, options)
+    console.log(response)
     if (response.ok) {
       const data = await response.json()
       const fetchedData = data.users_stories
@@ -101,19 +103,43 @@ class Home extends Component {
   }
 
   renderStories = () => {
-    const settings = {
+    const lgSettings = {
       slidesToShow: 7,
+      slidesToScroll: 1,
+      swipeToSlide: true,
+      speed: 300,
+    }
+    const smSettings = {
+      slidesToShow: 4,
       slidesToScroll: 1,
       swipeToSlide: true,
       speed: 300,
     }
     const {storiesList} = this.state
     return (
-      <Slider {...settings}>
-        {storiesList.map(eachStory => (
-          <UserStoryItem key={eachStory.userId} storyDetails={eachStory} />
+      <>
+        <Slider className="largerSlider" {...lgSettings}>
+          {storiesList.map(eachStory => (
+            <UserStoryItem key={eachStory.userId} storyDetails={eachStory} />
+          ))}
+        </Slider>
+        <Slider className="smallSlider" {...smSettings}>
+          {storiesList.map(eachStory => (
+            <UserStoryItem key={eachStory.userId} storyDetails={eachStory} />
+          ))}
+        </Slider>
+      </>
+    )
+  }
+
+  renderPosts = () => {
+    const {postsList} = this.state
+    return (
+      <ul>
+        {postsList.map(eachPost => (
+          <UserPostItem userPostDetails={eachPost} key={eachPost.postId} />
         ))}
-      </Slider>
+      </ul>
     )
   }
 
@@ -124,7 +150,7 @@ class Home extends Component {
   )
 
   render() {
-    const {storiesApiStatus} = this.state
+    const {storiesApiStatus, postsApiStatus} = this.state
     return (
       <>
         <Header />
@@ -132,6 +158,11 @@ class Home extends Component {
           {storiesApiStatus === apiStatusConstants.inProgress
             ? this.renderLoadingView()
             : this.renderStories()}
+          <div className="postsContainer">
+            {postsApiStatus === apiStatusConstants.inProgress
+              ? this.renderLoadingView()
+              : this.renderPosts()}
+          </div>
         </div>
       </>
     )

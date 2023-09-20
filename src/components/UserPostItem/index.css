@@ -1,21 +1,42 @@
 .listItem {
   list-style-type: none;
   padding-left: 0;
-  border: 1px solid #bfbebb;
+  border: 1px solid #e3e6e4;
   width: 100%;
+  background-color: white;
+  margin-left: 0;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+@media all and (max-width: 1024px) {
+  .listItem {
+    border: none;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+  }
 }
 
 .miniContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px 20px;
+  padding: 5px 20px;
+}
+
+.miniContainerPadding {
+  padding: 0;
 }
 
 .profilePic {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 28px;
+}
+@media all and (max-width) {
+  .profilePic {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .profileName {
@@ -24,15 +45,23 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+  margin-left: 20px;
+}
+
+.linkName {
   text-decoration: none;
 }
 
 .postIcon {
   width: 24px;
   height: 24px;
+  font-size: 15px;
   background-color: transparent;
   color: #475569;
   border: none;
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 8px;
 }
 
 .postText {
@@ -50,4 +79,12 @@
 
 .createdTime {
   color: #989898;
+}
+
+.post {
+  width: 100%;
+}
+
+.postDetailsContainer {
+  padding: 8px 20px;
 }

@@ -4,10 +4,10 @@
   padding: 25px 15vw;
 }
 
-.slider {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media all and (max-width: 1024px) {
+  .homeContainer {
+    padding: 0;
+  }
 }
 
 .slick-prev:before,
@@ -25,4 +25,30 @@
   justify-content: center;
   align-items: center;
   height: 100px;
+}
+
+.postsContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (min-width: 1025px) {
+  .smallSlider {
+    display: none;
+  }
+}
+@media all and (max-width: 1024px) {
+  .postsContainer {
+    width: 100vw;
+  }
+  .largeSlider {
+    display: none;
+  }
+  .smallSlider {
+    padding: 10px 20px;
+    border-bottom: #cfd1d0;
+  }
 }
