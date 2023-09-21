@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Slider from 'react-slick'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
+import {BsFillExclamationTriangleFill} from 'react-icons/bs'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -92,7 +93,7 @@ class Home extends Component {
         })),
         createdAt: post.created_at,
       }))
-      console.log(updatedData)
+      // console.log(updatedData)
       this.setState({
         postsList: updatedData,
         postsApiStatus: apiStatusConstants.success,
@@ -146,6 +147,20 @@ class Home extends Component {
   renderLoadingView = () => (
     <div className="loader-container loader" data-testid="loader">
       <Loader type="TailSpin" color="#4094EF" height={30} width={30} />
+    </div>
+  )
+
+  renderFailureView = () => (
+    <div className="alertContainer">
+      <BsFillExclamationTriangleFill className="alert" />
+      <p className="alertText">Something went wrong. Please try again</p>
+      <button
+        onClick={this.getInstaPosts}
+        className="retryButton"
+        type="button"
+      >
+        Try again
+      </button>
     </div>
   )
 

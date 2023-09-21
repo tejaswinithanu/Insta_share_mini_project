@@ -64,6 +64,10 @@
   margin-right: 8px;
 }
 
+.likeIcon {
+  color: none;
+}
+
 .postText {
   color: #262626;
   font-family: Roboto;

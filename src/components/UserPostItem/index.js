@@ -8,6 +8,8 @@ import {FaRegComment} from 'react-icons/fa'
 import './index.css'
 
 class UserPostItem extends Component {
+  state = {isLiked: false}
+
   render() {
     const {userPostDetails} = this.props
     const {
@@ -20,10 +22,15 @@ class UserPostItem extends Component {
       createdAt,
     } = userPostDetails
     const {imageUrl, caption} = postDetails
+    const {isLiked} = this.state
     return (
       <li className="listItem">
         <div className="miniContainer">
-          <img className="profilePic" alt="profile" src={profilePic} />
+          <img
+            className="profilePic"
+            alt="post author profile"
+            src={profilePic}
+          />
           <Link className="linkName" to={`/users/${userId}`}>
             <p className="profileName">{userName}</p>
           </Link>
@@ -31,9 +38,19 @@ class UserPostItem extends Component {
         <img className="post" alt="post" src={imageUrl} />
         <div className="postDetailsContainer">
           <div className="miniContainer miniContainerPadding">
-            <button className="postIcon" type="button">
-              <BsHeart />
-            </button>
+            {isLiked ? (
+              <button
+                data-testid="unLikeIcon"
+                className="postIcon likeIcon"
+                type="button"
+              >
+                <FcLike />
+              </button>
+            ) : (
+              <button data-testid="likeIcon" className="postIcon" type="button">
+                <BsHeart />
+              </button>
+            )}
             <button className="postIcon" type="button">
               <FaRegComment />
             </button>
