@@ -27,6 +27,10 @@
   height: 100px;
 }
 
+.postsUl {
+  padding-left: 0;
+}
+
 .postsContainer {
   min-height: 80vh;
   display: flex;
@@ -35,21 +39,14 @@
   align-items: center;
 }
 
-@media all and (min-width: 1025px) {
-  .smallSlider {
-    display: none;
-  }
-}
 @media all and (max-width: 1024px) {
   .postsContainer {
-    width: 100vw;
-  }
-  .largeSlider {
-    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
   .smallSlider {
     padding: 10px 20px;
-    border-bottom: #cfd1d0;
   }
 }
 

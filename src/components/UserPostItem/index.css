@@ -13,6 +13,7 @@
     border: none;
     background-color: #fafafa;
     margin-bottom: 10px;
+    border-top: 1px solid #d9d7d7;
   }
 }
 
@@ -78,7 +79,6 @@
 
 .caption {
   font-weight: 400;
-  width: 40%;
 }
 
 .createdTime {
@@ -91,4 +91,13 @@
 
 .postDetailsContainer {
   padding: 8px 20px;
+}
+
+.commentsUl {
+  padding-left: 0;
+}
+
+.commentListItem {
+  list-style-type: none;
+  margin-bottom: 8px;
 }

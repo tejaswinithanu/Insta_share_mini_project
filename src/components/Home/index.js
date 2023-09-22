@@ -2,10 +2,6 @@ import {Component} from 'react'
 import Slider from 'react-slick'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {BsFillExclamationTriangleFill} from 'react-icons/bs'
-
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
 import Header from '../Header'
 import UserStoryItem from '../UserStoryItem'
@@ -104,27 +100,27 @@ class Home extends Component {
   }
 
   renderStories = () => {
-    const lgSettings = {
+    const settings = {
       slidesToShow: 7,
-      slidesToScroll: 1,
+      slidesToScroll: 3,
       swipeToSlide: true,
-      speed: 300,
-    }
-    const smSettings = {
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      swipeToSlide: true,
-      speed: 300,
+      speed: 500,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            swipeToSlide: true,
+            speed: 500,
+          },
+        },
+      ],
     }
     const {storiesList} = this.state
     return (
       <>
-        <Slider className="largerSlider" {...lgSettings}>
-          {storiesList.map(eachStory => (
-            <UserStoryItem key={eachStory.userId} storyDetails={eachStory} />
-          ))}
-        </Slider>
-        <Slider className="smallSlider" {...smSettings}>
+        <Slider className="smallSlider" {...settings}>
           {storiesList.map(eachStory => (
             <UserStoryItem key={eachStory.userId} storyDetails={eachStory} />
           ))}
@@ -136,7 +132,7 @@ class Home extends Component {
   renderPosts = () => {
     const {postsList} = this.state
     return (
-      <ul>
+      <ul className="postsUl">
         {postsList.map(eachPost => (
           <UserPostItem userPostDetails={eachPost} key={eachPost.postId} />
         ))}
@@ -145,14 +141,18 @@ class Home extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container loader" data-testid="loader">
-      <Loader type="TailSpin" color="#4094EF" height={30} width={30} />
+    <div className="loader-container loader" /* testid="loader" */>
+      <Loader type="ThreeDots" color="#4094EF" height={30} width={30} />
     </div>
   )
 
   renderFailureView = () => (
     <div className="alertContainer">
-      <BsFillExclamationTriangleFill className="alert" />
+      <img
+        className="alert"
+        alt="failure view"
+        src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1695383770/alert-triangle_qsxvpi.png"
+      />
       <p className="alertText">Something went wrong. Please try again</p>
       <button
         onClick={this.getInstaPosts}

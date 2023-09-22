@@ -24,6 +24,11 @@
   justify-content: space-around;
   align-items: center;
 }
+@media all and (max-width: 1024px) {
+  .itemsContainer {
+    background-color: #fafafa;
+  }
+}
 
 .siteLogo {
   width: 59px;
@@ -142,4 +147,9 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+}
+
+.searchSection {
+  background-color: #fafafa;
+  padding: 10px 20px;
 }

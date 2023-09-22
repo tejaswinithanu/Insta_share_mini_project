@@ -40,14 +40,17 @@ class UserPostItem extends Component {
           <div className="miniContainer miniContainerPadding">
             {isLiked ? (
               <button
-                data-testid="unLikeIcon"
+                // testid="unLikeIcon"
                 className="postIcon likeIcon"
                 type="button"
               >
                 <FcLike />
               </button>
             ) : (
-              <button data-testid="likeIcon" className="postIcon" type="button">
+              <button
+                /* testid="likeIcon" */ className="postIcon"
+                type="button"
+              >
                 <BsHeart />
               </button>
             )}
@@ -60,6 +63,16 @@ class UserPostItem extends Component {
           </div>
           <p className="postText likes">{likesCount} likes</p>
           <p className="postText caption">{caption}</p>
+          <ul className="commentsUl">
+            {comments.map(eachComment => (
+              <li className="commentListItem" key={eachComment.commentedUserId}>
+                <p className="postText">
+                  {eachComment.commentedUsername}{' '}
+                  <span className="caption"> {eachComment.comment}</span>
+                </p>
+              </li>
+            ))}
+          </ul>
           <p className="postText createdTime">{createdAt}</p>
         </div>
       </li>

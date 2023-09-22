@@ -10,6 +10,7 @@ import './index.css'
 const Header = props => {
   const {info} = props
   const [isMenuOpen, openMenu] = useState(false)
+  const [isSearchOpened, openSearchBar] = useState(false)
   const onClickLogout = () => {
     const {history} = props
     Cookies.remove('jwt_token')
@@ -20,6 +21,10 @@ const Header = props => {
   }
   const onCloseMenu = () => {
     openMenu(false)
+  }
+  const onSearchOpen = () => {
+    openMenu(false)
+    openSearchBar(true)
   }
   return (
     <>
@@ -45,7 +50,7 @@ const Header = props => {
               type="search"
             />
             <button
-              data-testid="searchIcon"
+              // testid="searchIcon"
               type="button"
               className="searchIcon"
             >
@@ -73,7 +78,9 @@ const Header = props => {
             <p className="navItem">Home</p>
           </Link>
           <Link className="linkItem" to="/">
-            <p className="navItem">Search</p>
+            <p onClick={onSearchOpen} className="navItem">
+              Search
+            </p>
           </Link>
           <Link className="linkItem" to="/my-profile">
             <p className="navItem">Profile</p>
@@ -88,6 +95,24 @@ const Header = props => {
           <button className="cancelButton" onClick={onCloseMenu} type="button">
             <MdCancel />
           </button>
+        </div>
+      )}
+      {isSearchOpened && (
+        <div className="searchSection">
+          <div className="itemsContainer searchBox">
+            <input
+              className="searchBar"
+              placeholder="Search Caption"
+              type="search"
+            />
+            <button
+              // testid="searchIcon"
+              type="button"
+              className="searchIcon"
+            >
+              <FaSearch className="search" />
+            </button>
+          </div>
         </div>
       )}
     </>
