@@ -5,12 +5,13 @@ import {FaSearch} from 'react-icons/fa'
 import {IoIosMenu} from 'react-icons/io'
 import {MdCancel} from 'react-icons/md'
 
+import SearchContext from '../../context/SearchContext'
 import './index.css'
 
 const Header = props => {
-  const {info} = props
   const [isMenuOpen, openMenu] = useState(false)
   const [isSearchOpened, openSearchBar] = useState(false)
+  const [userInput, saveUserInput] = useState('')
   const onClickLogout = () => {
     const {history} = props
     Cookies.remove('jwt_token')
@@ -27,6 +28,55 @@ const Header = props => {
     openSearchBar(true)
   }
   return (
+    <nav className="navbar">
+      <div className="logoBar">
+        <div className="itemsContainer">
+          <Link to="/">
+            <img
+              className="siteLogo"
+              alt="website logo"
+              src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1694414716/logo_bsgbfe.png"
+            />
+          </Link>
+          <h1 className="websiteName">Insta Share</h1>
+        </div>
+        <button onClick={onOpenMenu} type="button" className="menuIcon">
+          <IoIosMenu onClick={onOpenMenu} />
+        </button>
+      </div>
+
+      <div className="itemsContainer menuItems">
+        <div className="itemsContainer searchBox">
+          <input
+            className="searchBar"
+            placeholder="Search Caption"
+            type="search"
+          />
+          <button
+            // testid="searchIcon"
+            type="button"
+            className="searchIcon"
+          >
+            <FaSearch className="search" />
+          </button>
+        </div>
+        <Link className="linkItem" to="/">
+          <p className="navItem">Home</p>
+        </Link>
+        <p className="navItem searchButton">Search</p>
+        <Link className="linkItem" to="/my-profile">
+          <p className="navItem">Profile</p>
+        </Link>
+        <button onClick={onClickLogout} className="logoutButton" type="button">
+          Logout
+        </button>
+        <button className="cancelButton" onClick={onCloseMenu} type="button">
+          <MdCancel />
+        </button>
+      </div>
+    </nav>
+  )
+  /* return (
     <>
       <nav className="navbar">
         <div className="itemsContainer">
@@ -116,7 +166,7 @@ const Header = props => {
         </div>
       )}
     </>
-  )
+  ) */
 }
 
 export default withRouter(Header)

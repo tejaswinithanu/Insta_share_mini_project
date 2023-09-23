@@ -9,12 +9,22 @@
   padding-right: 15vw;
 }
 
+.logoBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media all and (max-width: 1024px) {
   .navbar {
     padding-left: 5vw;
     padding-right: 5vw;
     border: none;
     background-color: #fafafa;
+  }
+  .logoBar {
+    width: 100%;
   }
 }
 
@@ -40,6 +50,7 @@
   .siteLogo {
     width: 55px;
     height: 28px;
+    margin-right: 10px;
   }
 }
 
@@ -72,6 +83,7 @@
   border: none;
   background-color: transparent;
   outline: none;
+  color: #4b4d4b;
 }
 
 .searchIcon {
@@ -147,9 +159,21 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 20px;
+}
+@media all and (min-width: 1024px) {
+  .cancelButton {
+    display: none;
+  }
 }
 
 .searchSection {
   background-color: #fafafa;
   padding: 10px 20px;
+}
+
+@media all and (min-width: 1024px) {
+  .searchButton {
+    display: none;
+  }
 }
