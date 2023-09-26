@@ -10,7 +10,6 @@ import './index.css'
 
 const Header = props => {
   const [isMenuOpen, openMenu] = useState(false)
-  const [isSearchOpened, openSearchBar] = useState(false)
   const [userInput, saveUserInput] = useState('')
   const onClickLogout = () => {
     const {history} = props
@@ -23,10 +22,7 @@ const Header = props => {
   const onCloseMenu = () => {
     openMenu(false)
   }
-  const onSearchOpen = () => {
-    openMenu(false)
-    openSearchBar(true)
-  }
+
   const onChangeSearchInput = event => {
     saveUserInput(event.target.value)
   }
@@ -34,9 +30,17 @@ const Header = props => {
   return (
     <SearchContext.Consumer>
       {value => {
-        const {onClickSearch} = value
+        const {
+          onClickSearch,
+          OnOpenSearchInMobile,
+          isSearchOpenInMobile,
+        } = value
         const onClickSearchButton = () => {
           onClickSearch(userInput)
+        }
+        const onSearchOpen = () => {
+          openMenu(false)
+          OnOpenSearchInMobile()
         }
         return (
           <nav className="navbar">
@@ -124,7 +128,7 @@ const Header = props => {
               </div>
             )}
 
-            {isSearchOpened && (
+            {isSearchOpenInMobile && (
               <div className="itemsContainer searchBox mobileViewContainer">
                 <input
                   className="searchBar"
