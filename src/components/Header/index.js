@@ -27,54 +27,125 @@ const Header = props => {
     openMenu(false)
     openSearchBar(true)
   }
-  return (
-    <nav className="navbar">
-      <div className="logoBar">
-        <div className="itemsContainer">
-          <Link to="/">
-            <img
-              className="siteLogo"
-              alt="website logo"
-              src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1694414716/logo_bsgbfe.png"
-            />
-          </Link>
-          <h1 className="websiteName">Insta Share</h1>
-        </div>
-        <button onClick={onOpenMenu} type="button" className="menuIcon">
-          <IoIosMenu onClick={onOpenMenu} />
-        </button>
-      </div>
+  const onChangeSearchInput = event => {
+    saveUserInput(event.target.value)
+  }
 
-      <div className="itemsContainer menuItems">
-        <div className="itemsContainer searchBox">
-          <input
-            className="searchBar"
-            placeholder="Search Caption"
-            type="search"
-          />
-          <button
-            // testid="searchIcon"
-            type="button"
-            className="searchIcon"
-          >
-            <FaSearch className="search" />
-          </button>
-        </div>
-        <Link className="linkItem" to="/">
-          <p className="navItem">Home</p>
-        </Link>
-        <p className="navItem searchButton">Search</p>
-        <Link className="linkItem" to="/my-profile">
-          <p className="navItem">Profile</p>
-        </Link>
-        <button onClick={onClickLogout} className="logoutButton" type="button">
-          Logout
-        </button>
-        <button className="cancelButton" onClick={onCloseMenu} type="button">
-          <MdCancel />
-        </button>
-      </div>
-    </nav>
+  return (
+    <SearchContext.Consumer>
+      {value => {
+        const {onClickSearch} = value
+        const onClickSearchButton = () => {
+          onClickSearch(userInput)
+        }
+        return (
+          <nav className="navbar">
+            <div className="logoBar">
+              <div className="itemsContainer">
+                <Link to="/">
+                  <img
+                    className="siteLogo"
+                    alt="website logo"
+                    src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1694414716/logo_bsgbfe.png"
+                  />
+                </Link>
+                <h1 className="websiteName">Insta Share</h1>
+              </div>
+              <button onClick={onOpenMenu} type="button" className="menuIcon">
+                <IoIosMenu onClick={onOpenMenu} />
+              </button>
+            </div>
+
+            <div className="itemsContainer menuItems">
+              <div className="itemsContainer searchBox">
+                <input
+                  className="searchBar"
+                  placeholder="Search Caption"
+                  type="search"
+                  onChange={onChangeSearchInput}
+                />
+                <button
+                  // testid="searchIcon"
+                  type="button"
+                  className="searchIcon"
+                  onClick={onClickSearchButton}
+                >
+                  <FaSearch className="search" />
+                </button>
+              </div>
+              <Link className="linkItem" to="/">
+                <p className="navItem">Home</p>
+              </Link>
+              <p className="navItem searchButton">Search</p>
+              <Link className="linkItem" to="/my-profile">
+                <p className="navItem">Profile</p>
+              </Link>
+              <button
+                onClick={onClickLogout}
+                className="logoutButton"
+                type="button"
+              >
+                Logout
+              </button>
+              <button
+                className="cancelButton"
+                onClick={onCloseMenu}
+                type="button"
+              >
+                <MdCancel />
+              </button>
+            </div>
+
+            {isMenuOpen && (
+              <div className="itemsContainer mobileViewContainer">
+                <Link className="linkItem" to="/">
+                  <p className="navItem">Home</p>
+                </Link>
+                <p onClick={onSearchOpen} className="navItem searchButton">
+                  Search
+                </p>
+                <Link className="linkItem" to="/my-profile">
+                  <p className="navItem">Profile</p>
+                </Link>
+                <button
+                  onClick={onClickLogout}
+                  className="logoutButton"
+                  type="button"
+                >
+                  Logout
+                </button>
+                <button
+                  className="cancelButton"
+                  onClick={onCloseMenu}
+                  type="button"
+                >
+                  <MdCancel />
+                </button>
+              </div>
+            )}
+
+            {isSearchOpened && (
+              <div className="itemsContainer searchBox mobileViewContainer">
+                <input
+                  className="searchBar"
+                  placeholder="Search Caption"
+                  type="search"
+                  onChange={onChangeSearchInput}
+                />
+                <button
+                  // testid="searchIcon"
+                  type="button"
+                  className="searchIcon"
+                  onClick={onClickSearchButton}
+                >
+                  <FaSearch className="search" />
+                </button>
+              </div>
+            )}
+          </nav>
+        )
+      }}
+    </SearchContext.Consumer>
   )
   /* return (
     <>

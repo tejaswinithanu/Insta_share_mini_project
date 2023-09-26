@@ -3,10 +3,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  padding: 5px 15vw;
   border-bottom: 1px solid #cfcfcf;
-  padding-left: 15vw;
-  padding-right: 15vw;
+}
+@media all and (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+  }
 }
 
 .logoBar {
@@ -78,12 +81,20 @@
   background: #fafafa;
   padding-left: 8px;
 }
+@media all and (max-width: 1024px) {
+  .searchBox {
+    align-self: flex-start;
+    width: 90%;
+    margin-top: 10px;
+  }
+}
 
 .searchBar {
   border: none;
   background-color: transparent;
   outline: none;
   color: #4b4d4b;
+  width: 100%;
 }
 
 .searchIcon {
@@ -142,6 +153,9 @@
 
 @media all and (min-width: 1025px) {
   .menuIcon {
+    display: none;
+  }
+  .mobileViewContainer {
     display: none;
   }
 }
