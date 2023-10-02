@@ -120,7 +120,7 @@ class Home extends Component {
     const {storiesList} = this.state
     return (
       <>
-        <Slider className="smallSlider" {...settings}>
+        <Slider className="slider" {...settings}>
           {storiesList.map(eachStory => (
             <UserStoryItem key={eachStory.userId} storyDetails={eachStory} />
           ))}

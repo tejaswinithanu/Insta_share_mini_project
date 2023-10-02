@@ -6,6 +6,7 @@ import SearchContext from './context/SearchContext'
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
+import SearchResults from './components/SearchResults'
 
 import './App.css'
 

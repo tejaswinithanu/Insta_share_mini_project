@@ -45,8 +45,15 @@
     margin: 0;
     padding: 0;
   }
-  .smallSlider {
+  .slider {
     padding: 10px 20px;
+  }
+  .slick-prev {
+    left: 10px;
+  }
+
+  .slick-next {
+    right: 10px;
   }
 }
 

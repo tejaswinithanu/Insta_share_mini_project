@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
 import {Link} from 'react-router-dom'
 import {BsHeart} from 'react-icons/bs'
 import {BiShareAlt} from 'react-icons/bi'
@@ -8,7 +9,44 @@ import {FaRegComment} from 'react-icons/fa'
 import './index.css'
 
 class UserPostItem extends Component {
-  state = {isLiked: false}
+  constructor(props) {
+    super(props)
+    const {userPostDetails} = props
+    const {likesCount} = userPostDetails
+    this.state = {isLiked: false, noOfLikes: likesCount}
+  }
+
+  onClickLikeIcon = () => {
+    this.setState(
+      prevState => ({
+        isLiked: !prevState.isLiked,
+      }),
+      this.updatePostStatus,
+    )
+  }
+
+  updatePostStatus = async () => {
+    const {isLiked} = this.state
+    const {userPostDetails} = this.props
+    const {postId} = userPostDetails
+    const url = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
+    const token = Cookies.get('jwt_token')
+    const likeStatus = {like_status: isLiked}
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(likeStatus),
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    const response = await fetch(url, options)
+    const data = await response.json()
+    if (data.message === 'Post has been liked') {
+      this.setState(prevState => ({noOfLikes: prevState.noOfLikes + 1}))
+    } else {
+      this.setState(prevState => ({noOfLikes: prevState.noOfLikes - 1}))
+    }
+  }
 
   render() {
     const {userPostDetails} = this.props
@@ -16,13 +54,13 @@ class UserPostItem extends Component {
       userName,
       profilePic,
       postDetails,
-      likesCount,
       comments,
       userId,
       createdAt,
     } = userPostDetails
     const {imageUrl, caption} = postDetails
-    const {isLiked} = this.state
+    const {isLiked, noOfLikes} = this.state
+    const testIdValue = isLiked ? 'unLikeIcon' : 'likeIcon'
     return (
       <li className="listItem">
         <div className="miniContainer">
@@ -38,22 +76,14 @@ class UserPostItem extends Component {
         <img className="post" alt="post" src={imageUrl} />
         <div className="postDetailsContainer">
           <div className="miniContainer miniContainerPadding">
-            {isLiked ? (
-              <button
-                // testid="unLikeIcon"
-                className="postIcon likeIcon"
-                type="button"
-              >
-                <FcLike />
-              </button>
-            ) : (
-              <button
-                /* testid="likeIcon" */ className="postIcon"
-                type="button"
-              >
-                <BsHeart />
-              </button>
-            )}
+            <button
+              /* testid={testIdValue} */
+              className="postIcon"
+              onClick={this.onClickLikeIcon}
+              type="button"
+            >
+              {isLiked ? <FcLike /> : <BsHeart />}
+            </button>
             <button className="postIcon" type="button">
               <FaRegComment />
             </button>
@@ -61,7 +91,7 @@ class UserPostItem extends Component {
               <BiShareAlt />
             </button>
           </div>
-          <p className="postText likes">{likesCount} likes</p>
+          <p className="postText likes">{noOfLikes} likes</p>
           <p className="postText caption">{caption}</p>
           <ul className="commentsUl">
             {comments.map(eachComment => (

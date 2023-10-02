@@ -10,7 +10,7 @@ class SearchResults extends Component {
     this.getSearchedPosts()
   }
 
-  getSearchedPosts = async () => (
+  getSearchedPosts = () => (
     <SearchContext.Consumer>
       {value => {
         const {searchInput} = value
@@ -22,7 +22,6 @@ class SearchResults extends Component {
             Authorization: `Bearer ${token}`,
           },
         }
-        const response =await fetch(url, options)
       }}
     </SearchContext.Consumer>
   )
