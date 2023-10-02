@@ -39,7 +39,6 @@ class Home extends Component {
       },
     }
     const response = await fetch(url, options)
-    console.log(response)
     if (response.ok) {
       const data = await response.json()
       const fetchedData = data.users_stories

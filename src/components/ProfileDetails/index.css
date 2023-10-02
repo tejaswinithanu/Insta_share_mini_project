@@ -1,0 +1,44 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.countDetailsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.countContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.profileImage {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.detailsText {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nameHeading {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.userId {
+  font-weight: 500;
+}

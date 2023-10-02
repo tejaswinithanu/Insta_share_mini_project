@@ -5,6 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import SearchContext from './context/SearchContext'
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
+import MyProfile from './components/MyProfile'
 import NotFound from './components/NotFound'
 import SearchResults from './components/SearchResults'
 
@@ -45,6 +46,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/login" component={LoginForm} />
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute exact path="/my-profile" component={MyProfile} />
           <Route path="/not-found" component={NotFound} />
           <Redirect to="not-found" />
         </Switch>
