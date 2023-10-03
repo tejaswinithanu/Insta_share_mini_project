@@ -1,3 +1,5 @@
+import './index.css'
+
 const ProfileDetails = props => {
   const {profileDetails} = props
   const {

@@ -1,5 +1,12 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
+import {BsGrid3X3} from 'react-icons/bs'
+import {AiFillCamera} from 'react-icons/ai'
+
+import Header from '../Header'
+import ProfileDetails from '../ProfileDetails'
+import './index.css'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -41,6 +48,7 @@ class MyProfile extends Component {
         stories: profile.stories,
         postsCount: profile.postsCount,
       }
+      console.log(updatedProfile)
       this.setState({
         myProfileDetails: updatedProfile,
         apiStatus: apiStatusConstants.success,
@@ -50,8 +58,73 @@ class MyProfile extends Component {
     }
   }
 
+  renderLoadingView = () => (
+    <div className="loader-container profileLoader" /* testid="loader" */>
+      <Loader type="ThreeDots" color="#4094EF" height={30} width={30} />
+    </div>
+  )
+
+  renderStories = () => {
+    const {myProfileDetails} = this.state
+    const {stories} = myProfileDetails
+    return (
+      <ul className="horizontalList">
+        {stories.map(eachStory => (
+          <li className="profileStoryListItem" key={eachStory.id}>
+            <img
+              className="profileStoryImage"
+              alt="story"
+              src={eachStory.image}
+            />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  renderPosts = () => {
+    const {myProfileDetails} = this.state
+    const {posts, postsCount} = myProfileDetails
+
+    return (
+      <div>
+        <div>
+          <hr className="horizontalLine" />
+        </div>
+        <div className="horizontalList">
+          <BsGrid3X3 />
+          <p className="postsText">Posts</p>
+        </div>
+        {postsCount === 0 ? (
+          <div className="noPostsContainer">
+            <AiFillCamera className="camIcon" />
+            <p className="noPostsText">No Posts Yet</p>
+          </div>
+        ) : (
+          <ul className="horizontalList myProfilePostsList">
+            {posts.map(eachPost => (
+              <li className="profilePostListItem" key={eachPost.id}>
+                <img className="postImage" alt="post" src={eachPost.image} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    )
+  }
+
   render() {
-    return <div>Hi</div>
+    const {apiStatus} = this.state
+    return (
+      <>
+        <Header />
+        <div className="myProfileContainer">
+          {apiStatus === apiStatusConstants.success
+            ? this.renderPosts()
+            : this.renderLoadingView()}
+        </div>
+      </>
+    )
   }
 }
 
