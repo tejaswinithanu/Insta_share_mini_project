@@ -89,3 +89,31 @@
   font-weight: 300;
   margin-top: 15px;
 }
+
+.failureContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.failureImg {
+  width: 560px;
+  height: 274px;
+}
+
+.failureText {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.profileRetryButton {
+  color: white;
+  background-color: #4094ef;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 25px;
+}

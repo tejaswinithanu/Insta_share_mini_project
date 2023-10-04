@@ -64,6 +64,24 @@ class MyProfile extends Component {
     </div>
   )
 
+  renderFailureView = () => (
+    <div className="failureContainer">
+      <img
+        className="failureImg"
+        alt="failure view"
+        src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1694414580/API_failure_sndoer.png"
+      />
+      <p className="failureText">Something went wrong. Please try again</p>
+      <button
+        onClick={this.getMyProfileDetails}
+        className="profileRetryButton"
+        type="button"
+      >
+        Try again
+      </button>
+    </div>
+  )
+
   renderStories = () => {
     const {myProfileDetails} = this.state
     const {stories} = myProfileDetails
@@ -112,6 +130,14 @@ class MyProfile extends Component {
       </div>
     )
   }
+
+  renderSuccessView = () => (
+    <>
+      <ProfileDetails />
+      {this.renderStories()}
+      {this.renderPosts()}
+    </>
+  )
 
   render() {
     const {apiStatus} = this.state
