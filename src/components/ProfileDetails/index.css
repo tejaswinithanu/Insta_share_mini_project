@@ -14,13 +14,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 50px;
+  font-weight: 500;
 }
 
 .profileImage {
   width: 180px;
   height: 180px;
   border-radius: 50%;
+  margin-right: 40px;
 }
 
 .detailsText {
@@ -37,8 +39,32 @@
   font-size: 32px;
   font-style: normal;
   font-weight: 300;
+  margin-bottom: 0;
+}
+@media all and (min-width: 1024px) {
+  .mobile-name-heading {
+    display: none;
+  }
+  .mobile-view-details {
+    display: none;
+  }
 }
 
 .userId {
   font-weight: 500;
+  margin-top: 5px;
+}
+
+.profile-count-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.count {
+  margin-right: 5px;
+}
+
+.user-bio {
+  font-size: 15px;
 }

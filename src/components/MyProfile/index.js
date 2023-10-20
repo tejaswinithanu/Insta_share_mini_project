@@ -38,15 +38,15 @@ class MyProfile extends Component {
       const {profile} = data
       const updatedProfile = {
         id: profile.data,
-        userId: profile.userId,
-        userName: profile.userName,
-        profilePic: profile.profilePic,
+        userId: profile.user_id,
+        userName: profile.user_name,
+        profilePic: profile.profile_pic,
         followersCount: profile.followers_count,
         followingCount: profile.following_count,
         userBio: profile.user_bio,
         posts: profile.posts,
         stories: profile.stories,
-        postsCount: profile.postsCount,
+        postsCount: profile.posts_count,
       }
       console.log(updatedProfile)
       this.setState({
@@ -86,7 +86,7 @@ class MyProfile extends Component {
     const {myProfileDetails} = this.state
     const {stories} = myProfileDetails
     return (
-      <ul className="horizontalList">
+      <ul className="storiesList horizontalList">
         {stories.map(eachStory => (
           <li className="profileStoryListItem" key={eachStory.id}>
             <img
@@ -131,24 +131,37 @@ class MyProfile extends Component {
     )
   }
 
-  renderSuccessView = () => (
-    <>
-      <ProfileDetails />
-      {this.renderStories()}
-      {this.renderPosts()}
-    </>
-  )
+  renderSuccessView = () => {
+    const {myProfileDetails} = this.state
+    return (
+      <>
+        <ProfileDetails profileDetails={myProfileDetails} />
+        {this.renderStories()}
+        {this.renderPosts()}
+      </>
+    )
+  }
+
+  renderMyProfilePage = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      default:
+        return null
+    }
+  }
 
   render() {
     const {apiStatus} = this.state
     return (
       <>
         <Header />
-        <div className="myProfileContainer">
-          {apiStatus === apiStatusConstants.success
-            ? this.renderPosts()
-            : this.renderLoadingView()}
-        </div>
+        <div className="myProfileContainer">{this.renderMyProfilePage()}</div>
       </>
     )
   }
