@@ -106,7 +106,7 @@ class Home extends Component {
       speed: 500,
       responsive: [
         {
-          breakpoint: 1025,
+          breakpoint: 1024,
           settings: {
             slidesToShow: 4,
             slidesToScroll: 3,

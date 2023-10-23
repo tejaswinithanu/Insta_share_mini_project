@@ -4,10 +4,28 @@
   justify-content: center;
 }
 
+@media all and (max-width: 1024px) {
+  .profileContainer {
+    padding: 10px;
+  }
+}
+
 .countDetailsContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.all-counts-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500;
+}
+@media all and (max-width: 1024px) {
+  .all-counts-container {
+    justify-content: space-around;
+  }
 }
 
 .countContainer {
@@ -17,12 +35,25 @@
   margin-right: 50px;
   font-weight: 500;
 }
+@media all and (max-width: 1024px) {
+  .countContainer {
+    flex-direction: column;
+    margin-right: 10px;
+  }
+}
 
 .profileImage {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   margin-right: 40px;
+}
+@media all and (max-width: 1024px) {
+  .profileImage {
+    width: 96px;
+    height: 96px;
+    margin-right: 10px;
+  }
 }
 
 .detailsText {
@@ -31,6 +62,12 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+}
+@media all and (max-width: 1024px) {
+  .detailsText {
+    margin: 0;
+    font-size: 12px;
+  }
 }
 
 .nameHeading {
@@ -41,6 +78,25 @@
   font-weight: 300;
   margin-bottom: 0;
 }
+
+@media all and (max-width: 1024px) {
+  .nameHeading {
+    display: none;
+  }
+  .description-details {
+    display: none;
+  }
+}
+
+.mobile-view-heading {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
 @media all and (min-width: 1024px) {
   .mobile-name-heading {
     display: none;
@@ -63,6 +119,14 @@
 
 .count {
   margin-right: 5px;
+}
+
+@media all and (max-width: 1024px) {
+  .count {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
 
 .user-bio {

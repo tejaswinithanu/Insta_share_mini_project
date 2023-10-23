@@ -12,6 +12,12 @@
   background-color: #fafafa;
 }
 
+@media all and (max-width: 1024px) {
+  .myProfileContainer {
+    padding: 0;
+  }
+}
+
 .horizontalList {
   display: flex;
   flex-direction: row;
