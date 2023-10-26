@@ -9,6 +9,10 @@
 @media all and (max-width: 1024px) {
   .navbar {
     flex-direction: column;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: none;
+    background-color: #fafafa;
   }
 }
 
@@ -20,12 +24,6 @@
 }
 
 @media all and (max-width: 1024px) {
-  .navbar {
-    padding-left: 5vw;
-    padding-right: 5vw;
-    border: none;
-    background-color: #fafafa;
-  }
   .logoBar {
     width: 100%;
   }

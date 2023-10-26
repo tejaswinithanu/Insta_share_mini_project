@@ -109,8 +109,8 @@ class MyProfile extends Component {
         <div>
           <hr className="horizontalLine" />
         </div>
-        <div className="horizontalList">
-          <BsGrid3X3 />
+        <div className="horizontalList posts-text-icon">
+          <BsGrid3X3 className="grid-icon" />
           <p className="postsText">Posts</p>
         </div>
         {postsCount === 0 ? (

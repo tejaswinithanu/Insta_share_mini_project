@@ -30,14 +30,28 @@
   margin-top: 50px;
 }
 
+@media all and (max-width: 1024px) {
+  .storiesList {
+    margin-top: 20px;
+    margin-left: 4vw;
+  }
+  .posts-text-icon {
+    margin-left: 4vw;
+  }
+}
+
 .profileStoryListItem {
   list-style-type: none;
   margin-right: 30px;
 }
+@media all and (max-width: 1024px) {
+  .profileStoryListItem {
+    margin-right: 15px;
+  }
+}
 
 .profilePostListItem {
   list-style-type: none;
-  flex-grow: 1;
 }
 
 .profileStoryImage {
@@ -47,16 +61,38 @@
   border: 1px #c6c6c8 solid;
   padding: 3px;
 }
+@media all and (max-width: 1024px) {
+  .profileStoryImage {
+    width: 64px;
+    height: 64px;
+  }
+}
 
 .postImage {
-  width: 300px;
-  height: 300px;
+  width: 22vw;
+  height: 22vw;
   margin-bottom: 15px;
+}
+@media all and (max-width: 1024px) {
+  .postImage {
+    width: 31vw;
+    height: 31vw;
+  }
 }
 
 .myProfilePostsList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0;
   width: 100%;
   flex-wrap: wrap;
+}
+@media all and (max-width: 1024px) {
+  .myProfilePostsList {
+    margin-top: 0;
+  }
 }
 
 .horizontalLine {
@@ -71,6 +107,16 @@
   font-style: normal;
   font-weight: 500;
   margin-left: 15px;
+}
+@media all and (max-width: 1024px) {
+  .postsText {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .grid-icon {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .noPostsContainer {

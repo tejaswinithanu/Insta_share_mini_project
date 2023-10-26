@@ -14,7 +14,7 @@ const ProfileDetails = props => {
   console.log(userName)
   return (
     <div className="profileContainer">
-      <h1 className="mobile-name-heading">{userName}</h1>
+      <h1 className="mobile-view-heading">{userName}</h1>
       <div className="profile-count-container">
         <img className="profileImage" alt="profile" src={profilePic} />
         <div>
@@ -40,7 +40,7 @@ const ProfileDetails = props => {
         </div>
       </div>
       <div className="mobile-view-details">
-        <p>{userId}</p>
+        <p className="userId">{userId}</p>
         <p className="detailsText">{userBio}</p>
       </div>
     </div>

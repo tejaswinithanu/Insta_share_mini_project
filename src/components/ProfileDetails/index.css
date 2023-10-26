@@ -22,9 +22,16 @@
   align-items: center;
   font-weight: 500;
 }
-@media all and (max-width: 1024px) {
+@media all and (max-width: 600px) {
   .all-counts-container {
     justify-content: space-around;
+    width: 60vw;
+  }
+}
+@media all and (min-width: 601px) and (max-width: 1024px) {
+  .all-counts-container {
+    justify-content: space-around;
+    width: 40vw;
   }
 }
 
@@ -91,14 +98,20 @@
 .mobile-view-heading {
   color: #262626;
   font-family: Roboto;
-  font-size: 32px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 300;
-  margin-bottom: 0;
+  margin-bottom: 18px;
+  margin-top: 0;
+  margin-left: 4vw;
+}
+
+.mobile-view-details {
+  margin-left: 4vw;
 }
 
 @media all and (min-width: 1024px) {
-  .mobile-name-heading {
+  .mobile-view-heading {
     display: none;
   }
   .mobile-view-details {
@@ -111,10 +124,21 @@
   margin-top: 5px;
 }
 
+@media all and (max-width: 1024px) {
+  .userId {
+    margin-top: 15px;
+  }
+}
+
 .profile-count-container {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+@media all and (max-width: 1024px) {
+  .profile-count-container {
+    margin-left: 4vw;
+  }
 }
 
 .count {
