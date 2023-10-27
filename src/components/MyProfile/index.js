@@ -48,7 +48,7 @@ class MyProfile extends Component {
         stories: profile.stories,
         postsCount: profile.posts_count,
       }
-      console.log(updatedProfile)
+      // console.log(updatedProfile)
       this.setState({
         myProfileDetails: updatedProfile,
         apiStatus: apiStatusConstants.success,
@@ -157,7 +157,6 @@ class MyProfile extends Component {
   }
 
   render() {
-    const {apiStatus} = this.state
     return (
       <>
         <Header />
