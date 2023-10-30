@@ -86,7 +86,7 @@ class MyProfile extends Component {
     const {myProfileDetails} = this.state
     const {stories} = myProfileDetails
     return (
-      <ul className="storiesList horizontalList">
+      <ul className="storiesList">
         {stories.map(eachStory => (
           <li className="profileStoryListItem" key={eachStory.id}>
             <img
@@ -119,7 +119,7 @@ class MyProfile extends Component {
             <p className="noPostsText">No Posts Yet</p>
           </div>
         ) : (
-          <ul className="horizontalList myProfilePostsList">
+          <ul className="myProfilePostsList">
             {posts.map(eachPost => (
               <li className="profilePostListItem" key={eachPost.id}>
                 <img className="postImage" alt="post" src={eachPost.image} />
