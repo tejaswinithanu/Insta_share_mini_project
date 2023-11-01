@@ -1,9 +1,16 @@
 .userProfileContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-height: 80vh;
   padding: 25px 15vw;
   background-color: #fafafa;
+}
+
+@media all and (max-width: 1024px) {
+  .userProfileContainer {
+    padding: 0;
+  }
 }
 
 .user-profile-loader {
@@ -49,9 +56,22 @@
   margin-top: 50px;
 }
 
+@media all and (max-width: 1024px) {
+  .user-stories-list {
+    margin-top: 20px;
+    margin-left: 4vw;
+  }
+}
+
 .user-profile-storyListItem {
   list-style-type: none;
   margin-right: 30px;
+}
+
+@media all and (max-width: 1024px) {
+  .user-profile-storyListItem {
+    margin-right: 15px;
+  }
 }
 
 .user-profile-storyImage {
@@ -60,6 +80,13 @@
   border-radius: 50%;
   border: 1px #c6c6c8 solid;
   padding: 3px;
+}
+
+@media all and (max-width: 1024px) {
+  .user-profile-storyImage {
+    width: 64px;
+    height: 64px;
+  }
 }
 
 .user-profile-horizontal-line {
@@ -75,6 +102,16 @@
   padding-left: 0;
 }
 
+@media all and (max-width: 1024px) {
+  .user-posts-text-icon {
+    margin-left: 4vw;
+  }
+  .grid-icon {
+    width: 15px;
+    height: 15px;
+  }
+}
+
 .user-posts-text {
   color: #262626;
   font-family: Roboto;
@@ -82,6 +119,13 @@
   font-style: normal;
   font-weight: 500;
   margin-left: 15px;
+}
+
+@media all and (max-width: 1024px) {
+  .user-posts-text {
+    font-size: 14px;
+    margin-left: 10px;
+  }
 }
 
 .user-noPostsContainer {
@@ -120,6 +164,12 @@
   flex-wrap: wrap;
 }
 
+@media all and (max-width: 1024px) {
+  .userProfilePostsList {
+    margin-top: 0;
+  }
+}
+
 .userProfilePostListItem {
   list-style-type: none;
 }
@@ -128,4 +178,11 @@
   width: 22vw;
   height: 22vw;
   margin-bottom: 15px;
+}
+
+@media all and (max-width: 1024px) {
+  .userPostImage {
+    width: 31vw;
+    height: 31vw;
+  }
 }

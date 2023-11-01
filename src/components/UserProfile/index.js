@@ -16,7 +16,7 @@ const apiStatusConstants = {
 }
 
 class UserProfile extends Component {
-  state = {UserProfileDetails: {}, apiStatus: apiStatusConstants.initial}
+  state = {userProfileDetails: {}, apiStatus: apiStatusConstants.initial}
 
   componentDidMount() {
     this.getUserProfileDetails()
@@ -51,9 +51,9 @@ class UserProfile extends Component {
         stories: userDetails.stories,
         postsCount: userDetails.posts_count,
       }
-      console.log(updatedData)
+      // console.log(updatedData)
       this.setState({
-        UserProfileDetails: updatedData,
+        userProfileDetails: updatedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -88,8 +88,9 @@ class UserProfile extends Component {
   )
 
   renderStories = () => {
-    const {UserProfileDetails} = this.state
-    const {stories} = UserProfileDetails
+    const {userProfileDetails} = this.state
+    console.log(userProfileDetails)
+    const {stories} = userProfileDetails
     return (
       <ul className="user-stories-list">
         {stories.map(eachStory => (
@@ -141,10 +142,10 @@ class UserProfile extends Component {
   }
 
   renderSuccessView = () => {
-    const {UserProfileDetails} = this.state
+    const {userProfileDetails} = this.state
     return (
       <>
-        <ProfileDetails profileDetails={UserProfileDetails} />
+        <ProfileDetails profileDetails={userProfileDetails} />
         {this.renderStories()}
         {this.renderPosts()}
       </>
