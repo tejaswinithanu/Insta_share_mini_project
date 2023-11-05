@@ -59,7 +59,7 @@ class MyProfile extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container profileLoader" /* testid="loader" */>
+    <div className="loader-container profileLoader" testid="loader">
       <Loader type="ThreeDots" color="#4094EF" height={30} width={30} />
     </div>
   )
@@ -91,7 +91,7 @@ class MyProfile extends Component {
           <li className="profileStoryListItem" key={eachStory.id}>
             <img
               className="profileStoryImage"
-              alt="story"
+              alt="my story"
               src={eachStory.image}
             />
           </li>
@@ -122,7 +122,7 @@ class MyProfile extends Component {
           <ul className="myProfilePostsList">
             {posts.map(eachPost => (
               <li className="profilePostListItem" key={eachPost.id}>
-                <img className="postImage" alt="post" src={eachPost.image} />
+                <img className="postImage" alt="my post" src={eachPost.image} />
               </li>
             ))}
           </ul>
@@ -135,7 +135,10 @@ class MyProfile extends Component {
     const {myProfileDetails} = this.state
     return (
       <>
-        <ProfileDetails profileDetails={myProfileDetails} />
+        <ProfileDetails
+          altValue="my profile"
+          profileDetails={myProfileDetails}
+        />
         {this.renderStories()}
         {this.renderPosts()}
       </>

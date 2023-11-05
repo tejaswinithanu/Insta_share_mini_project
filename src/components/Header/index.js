@@ -42,6 +42,7 @@ const Header = props => {
           openMenu(false)
           OnOpenSearchInMobile()
         }
+
         return (
           <nav className="navbar">
             <div className="logoBar">
@@ -69,7 +70,7 @@ const Header = props => {
                   onChange={onChangeSearchInput}
                 />
                 <button
-                  // testid="searchIcon"
+                  testid="searchIcon"
                   type="button"
                   className="searchIcon"
                   onClick={onClickSearchButton}
@@ -137,7 +138,7 @@ const Header = props => {
                   onChange={onChangeSearchInput}
                 />
                 <button
-                  // testid="searchIcon"
+                  testid="searchIcon"
                   type="button"
                   className="searchIcon"
                   onClick={onClickSearchButton}

@@ -1,7 +1,7 @@
 import './index.css'
 
 const ProfileDetails = props => {
-  const {profileDetails} = props
+  const {profileDetails, altValue} = props
   const {
     userId,
     userName,
@@ -11,12 +11,12 @@ const ProfileDetails = props => {
     userBio,
     postsCount,
   } = profileDetails
-  console.log(userName)
+
   return (
     <div className="profileContainer">
       <h1 className="mobile-view-heading">{userName}</h1>
       <div className="profile-count-container">
-        <img className="profileImage" alt="profile" src={profilePic} />
+        <img className="profileImage" alt={altValue} src={profilePic} />
         <div>
           <h1 className="nameHeading">{userName}</h1>
           <div className="all-counts-container">

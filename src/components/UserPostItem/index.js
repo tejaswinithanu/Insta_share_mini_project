@@ -77,7 +77,7 @@ class UserPostItem extends Component {
         <div className="postDetailsContainer">
           <div className="miniContainer miniContainerPadding">
             <button
-              /* testid={testIdValue} */
+              testid={testIdValue}
               className="postIcon"
               onClick={this.onClickLikeIcon}
               type="button"

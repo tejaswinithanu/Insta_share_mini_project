@@ -62,7 +62,7 @@ class UserProfile extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container user-profile-loader" /* testid="loader" */>
+    <div className="loader-container user-profile-loader" testid="loader">
       <Loader type="ThreeDots" color="#4094EF" height={30} width={30} />
     </div>
   )
@@ -97,7 +97,7 @@ class UserProfile extends Component {
           <li className="user-profile-storyListItem" key={eachStory.id}>
             <img
               className="user-profile-storyImage"
-              alt="story"
+              alt="user story"
               src={eachStory.image}
             />
           </li>
@@ -130,7 +130,7 @@ class UserProfile extends Component {
               <li className="userProfilePostListItem" key={eachPost.id}>
                 <img
                   className="userPostImage"
-                  alt="post"
+                  alt="user post"
                   src={eachPost.image}
                 />
               </li>
@@ -145,7 +145,10 @@ class UserProfile extends Component {
     const {userProfileDetails} = this.state
     return (
       <>
-        <ProfileDetails profileDetails={userProfileDetails} />
+        <ProfileDetails
+          altValue="user profile"
+          profileDetails={userProfileDetails}
+        />
         {this.renderStories()}
         {this.renderPosts()}
       </>
