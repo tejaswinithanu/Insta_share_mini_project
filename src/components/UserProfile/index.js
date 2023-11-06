@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {BsGrid3X3} from 'react-icons/bs'
-import {AiFillCamera} from 'react-icons/ai'
+import {BiCamera} from 'react-icons/bi'
 
 import Header from '../Header'
 import ProfileDetails from '../ProfileDetails'
@@ -62,7 +62,7 @@ class UserProfile extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container user-profile-loader" testid="loader">
+    <div className="loader-container user-profile-loader" /* testid="loader" */>
       <Loader type="ThreeDots" color="#4094EF" height={30} width={30} />
     </div>
   )
@@ -78,7 +78,7 @@ class UserProfile extends Component {
         Something went wrong. Please try again
       </p>
       <button
-        onClick={this.getMyProfileDetails}
+        onClick={this.getUserProfileDetails}
         className="user-profile-retry-button"
         type="button"
       >
@@ -121,8 +121,8 @@ class UserProfile extends Component {
         </div>
         {postsCount === 0 ? (
           <div className="user-noPostsContainer">
-            <AiFillCamera className="user-camIcon" />
-            <p className="user-noPostsText">No Posts Yet</p>
+            <BiCamera className="user-camIcon" />
+            <h1 className="user-noPostsText">No Posts</h1>
           </div>
         ) : (
           <ul className="userProfilePostsList">

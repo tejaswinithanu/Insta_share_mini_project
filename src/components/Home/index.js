@@ -145,7 +145,25 @@ class Home extends Component {
     </div>
   )
 
-  renderFailureView = () => (
+  renderStoriesFailureView = () => (
+    <div className="alertContainer">
+      <img
+        className="alert"
+        alt="failure view"
+        src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1695383770/alert-triangle_qsxvpi.png"
+      />
+      <p className="alertText">Something went wrong. Please try again</p>
+      <button
+        onClick={this.getInstaStories}
+        className="retryButton"
+        type="button"
+      >
+        Try again
+      </button>
+    </div>
+  )
+
+  renderPostsFailureView = () => (
     <div className="alertContainer">
       <img
         className="alert"
@@ -163,21 +181,46 @@ class Home extends Component {
     </div>
   )
 
+  renderStoriesSuccessView = () => {
+    const {storiesApiStatus} = this.state
+    switch (storiesApiStatus) {
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      case apiStatusConstants.success:
+        return this.renderStories()
+      case apiStatusConstants.failure:
+        return this.renderStoriesFailureView()
+      default:
+        return null
+    }
+  }
+
+  renderPostsSuccessView = () => {
+    const {postsApiStatus} = this.state
+    switch (postsApiStatus) {
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      case apiStatusConstants.success:
+        return this.renderPosts()
+      case apiStatusConstants.failure:
+        return this.renderPostsFailureView()
+      default:
+        return null
+    }
+  }
+
+  renderHomePage = () => (
+    <>
+      {this.renderStoriesSuccessView()}
+      <div className="postsContainer">{this.renderPostsSuccessView()}</div>
+    </>
+  )
+
   render() {
-    const {storiesApiStatus, postsApiStatus} = this.state
     return (
       <>
         <Header />
-        <div className="homeContainer">
-          {storiesApiStatus === apiStatusConstants.inProgress
-            ? this.renderLoadingView()
-            : this.renderStories()}
-          <div className="postsContainer">
-            {postsApiStatus === apiStatusConstants.inProgress
-              ? this.renderLoadingView()
-              : this.renderPosts()}
-          </div>
-        </div>
+        <div className="homeContainer">{this.renderHomePage()}</div>
       </>
     )
   }

@@ -98,7 +98,22 @@
   padding-left: 0;
 }
 
+.comment {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  margin-bottom: 5px;
+}
+
+.commented-user-name {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
 .commentListItem {
   list-style-type: none;
-  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

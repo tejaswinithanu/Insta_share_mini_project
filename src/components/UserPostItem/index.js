@@ -27,6 +27,11 @@ class UserPostItem extends Component {
 
   updatePostStatus = async () => {
     const {isLiked} = this.state
+    if (isLiked) {
+      this.setState(prevState => ({noOfLikes: prevState.noOfLikes + 1}))
+    } else {
+      this.setState(prevState => ({noOfLikes: prevState.noOfLikes - 1}))
+    }
     const {userPostDetails} = this.props
     const {postId} = userPostDetails
     const url = `https://apis.ccbp.in/insta-share/posts/${postId}/like`
@@ -41,11 +46,6 @@ class UserPostItem extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
-    if (data.message === 'Post has been liked') {
-      this.setState(prevState => ({noOfLikes: prevState.noOfLikes + 1}))
-    } else {
-      this.setState(prevState => ({noOfLikes: prevState.noOfLikes - 1}))
-    }
   }
 
   render() {
@@ -96,10 +96,10 @@ class UserPostItem extends Component {
           <ul className="commentsUl">
             {comments.map(eachComment => (
               <li className="commentListItem" key={eachComment.commentedUserId}>
-                <p className="postText">
-                  {eachComment.commentedUsername}{' '}
-                  <span className="caption"> {eachComment.comment}</span>
+                <p className="comment commented-user-name">
+                  {eachComment.commentedUsername}
                 </p>
+                <p className="comment"> {eachComment.comment}</p>
               </li>
             ))}
           </ul>

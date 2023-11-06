@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {BsGrid3X3} from 'react-icons/bs'
-import {AiFillCamera} from 'react-icons/ai'
+import {BiCamera} from 'react-icons/bi'
 
 import Header from '../Header'
 import ProfileDetails from '../ProfileDetails'
@@ -111,12 +111,12 @@ class MyProfile extends Component {
         </div>
         <div className="horizontalList posts-text-icon">
           <BsGrid3X3 className="grid-icon" />
-          <p className="postsText">Posts</p>
+          <h1 className="postsText">Posts</h1>
         </div>
         {postsCount === 0 ? (
           <div className="noPostsContainer">
-            <AiFillCamera className="camIcon" />
-            <p className="noPostsText">No Posts Yet</p>
+            <BiCamera className="camIcon" />
+            <h1 className="noPostsText">No Posts</h1>
           </div>
         ) : (
           <ul className="myProfilePostsList">
