@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchContext = React.createContext({
   searchInput: '',
-  onClickSearch: () => {},
+  onClickSearchIcon: () => {},
   isSearchButtonClicked: false,
   isSearchOpenInMobile: false,
   OnOpenSearchInMobile: () => {},

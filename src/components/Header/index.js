@@ -31,18 +31,18 @@ const Header = props => {
     <SearchContext.Consumer>
       {value => {
         const {
-          onClickSearch,
+          onClickSearchIcon,
           OnOpenSearchInMobile,
           isSearchOpenInMobile,
         } = value
         const onClickSearchButton = () => {
-          onClickSearch(userInput)
+          onClickSearchIcon(userInput)
         }
         const onSearchOpen = () => {
           openMenu(false)
           OnOpenSearchInMobile()
         }
-
+        // console.log(userInput)
         return (
           <nav className="navbar">
             <div className="logoBar">
@@ -67,10 +67,11 @@ const Header = props => {
                   className="searchBar"
                   placeholder="Search Caption"
                   type="search"
+                  value={userInput}
                   onChange={onChangeSearchInput}
                 />
                 <button
-                  testid="searchIcon"
+                  // testid="searchIcon"
                   type="button"
                   className="searchIcon"
                   onClick={onClickSearchButton}
@@ -135,10 +136,11 @@ const Header = props => {
                   className="searchBar"
                   placeholder="Search Caption"
                   type="search"
+                  value={userInput}
                   onChange={onChangeSearchInput}
                 />
                 <button
-                  testid="searchIcon"
+                  // testid="searchIcon"
                   type="button"
                   className="searchIcon"
                   onClick={onClickSearchButton}
