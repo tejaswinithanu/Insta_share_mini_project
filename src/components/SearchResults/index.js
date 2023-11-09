@@ -22,6 +22,12 @@ class SearchResults extends Component {
             Authorization: `Bearer ${token}`,
           },
         }
+        const getResponse = async () => {
+          const res = await fetch(url, options)
+          return res
+        }
+        const response = getResponse()
+        console.log('Hello')
       }}
     </SearchContext.Consumer>
   )

@@ -34,6 +34,7 @@ const Header = props => {
           onClickSearchIcon,
           OnOpenSearchInMobile,
           isSearchOpenInMobile,
+          onCloseSearchInMobile,
         } = value
         const onClickSearchButton = () => {
           onClickSearchIcon(userInput)
@@ -41,6 +42,11 @@ const Header = props => {
         const onSearchOpen = () => {
           openMenu(false)
           OnOpenSearchInMobile()
+        }
+        const onClickHomeOrProfile = () => {
+          onCloseSearchInMobile()
+          saveUserInput('')
+          openMenu(false)
         }
         // console.log(userInput)
         return (
@@ -80,11 +86,15 @@ const Header = props => {
                 </button>
               </div>
               <Link className="linkItem" to="/">
-                <p className="navItem">Home</p>
+                <p onClick={onClickHomeOrProfile} className="navItem">
+                  Home
+                </p>
               </Link>
               <p className="navItem searchButton">Search</p>
               <Link className="linkItem" to="/my-profile">
-                <p className="navItem">Profile</p>
+                <p onClick={onClickHomeOrProfile} className="navItem">
+                  Profile
+                </p>
               </Link>
               <button
                 onClick={onClickLogout}
@@ -105,13 +115,17 @@ const Header = props => {
             {isMenuOpen && (
               <div className="itemsContainer mobileViewContainer">
                 <Link className="linkItem" to="/">
-                  <p className="navItem">Home</p>
+                  <p onClick={onClickHomeOrProfile} className="navItem">
+                    Home
+                  </p>
                 </Link>
                 <p onClick={onSearchOpen} className="navItem searchButton">
                   Search
                 </p>
                 <Link className="linkItem" to="/my-profile">
-                  <p className="navItem">Profile</p>
+                  <p onClick={onClickHomeOrProfile} className="navItem">
+                    Profile
+                  </p>
                 </Link>
                 <button
                   onClick={onClickLogout}

@@ -28,6 +28,10 @@ class App extends Component {
     this.setState({isSearchOpenInMobile: true})
   }
 
+  onCloseSearchInMobile = () => {
+    this.setState({isSearchOpenInMobile: false, searchInput: ''})
+  }
+
   render() {
     const {
       searchInput,
@@ -42,6 +46,7 @@ class App extends Component {
           isSearchOpenInMobile,
           onClickSearch: this.onClickSearch,
           OnOpenSearchInMobile: this.OnOpenSearchInMobile,
+          onCloseSearchInMobile: this.onCloseSearchInMobile,
         }}
       >
         <Switch>
@@ -49,6 +54,7 @@ class App extends Component {
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/my-profile" component={MyProfile} />
           <ProtectedRoute exact path="/users/:id" component={UserProfile} />
+          <Route component={SearchResults} />
           <Route path="/not-found" component={NotFound} />
           <Redirect to="not-found" />
         </Switch>

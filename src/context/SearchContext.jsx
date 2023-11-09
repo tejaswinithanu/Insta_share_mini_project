@@ -6,6 +6,7 @@ const SearchContext = React.createContext({
   isSearchButtonClicked: false,
   isSearchOpenInMobile: false,
   OnOpenSearchInMobile: () => {},
+  onCloseSearchInMobile: () => {},
 })
 
 export default SearchContext
