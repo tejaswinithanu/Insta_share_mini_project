@@ -77,7 +77,7 @@ class UserPostItem extends Component {
         <div className="postDetailsContainer">
           <div className="miniContainer miniContainerPadding">
             <button
-              // testid={testIdValue}
+              testid={testIdValue}
               className="postIcon"
               onClick={this.onClickLikeIcon}
               type="button"
@@ -96,9 +96,9 @@ class UserPostItem extends Component {
           <ul className="commentsUl">
             {comments.map(eachComment => (
               <li className="commentListItem" key={eachComment.commentedUserId}>
-                <p className="comment commented-user-name">
+                <span className="comment commented-user-name">
                   {eachComment.commentedUsername}
-                </p>
+                </span>
                 <p className="comment"> {eachComment.comment}</p>
               </li>
             ))}

@@ -71,7 +71,7 @@ class SearchResults extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container search-loader" /* testid="loader" */>
+    <div className="loader-container search-loader" testid="loader">
       <Loader type="ThreeDots" color="#4094EF" height={30} width={30} />
     </div>
   )
@@ -116,7 +116,7 @@ class SearchResults extends Component {
     <div className="search-not-found-container">
       <img
         className="search-not-found-img"
-        alt="notFound"
+        alt="search not found"
         src="https://res.cloudinary.com/dqqijdyjr/image/upload/v1694414768/Search_Not_Found_1x_kbr6v6.png"
       />
       <h1 className="search-not-found-text">Search Not Found</h1>
@@ -146,7 +146,7 @@ class SearchResults extends Component {
       case apiStatusConstants.success:
         return this.renderSuccessView()
       case apiStatusConstants.failure:
-        return this.renderLoadingView()
+        return this.renderFailureView()
       default:
         return null
     }

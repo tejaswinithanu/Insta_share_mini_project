@@ -6,6 +6,8 @@ import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import UserStoryItem from '../UserStoryItem'
 import UserPostItem from '../UserPostItem'
+import SearchResults from '../SearchResults'
+import SearchContext from '../../context/SearchContext'
 import './index.css'
 
 const apiStatusConstants = {
@@ -140,7 +142,7 @@ class Home extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container loader" /* testid="loader" */>
+    <div className="loader-container loader" testid="loader">
       <Loader type="ThreeDots" color="#4094EF" height={30} width={30} />
     </div>
   )
@@ -211,18 +213,29 @@ class Home extends Component {
 
   renderHomePage = () => (
     <>
-      {this.renderStoriesSuccessView()}
-      <div className="postsContainer">{this.renderPostsSuccessView()}</div>
+      <Header />
+      <div className="homeContainer">
+        {this.renderStoriesSuccessView()}
+        <div className="postsContainer">{this.renderPostsSuccessView()}</div>
+      </div>
     </>
   )
 
+  renderHomeOrSearchResults = () => (
+    <SearchContext.Consumer>
+      {value => {
+        const {searchInput, isSearchButtonClicked} = value
+        return isSearchButtonClicked ? (
+          <SearchResults searchInput={searchInput} />
+        ) : (
+          this.renderHomePage()
+        )
+      }}
+    </SearchContext.Consumer>
+  )
+
   render() {
-    return (
-      <>
-        <Header />
-        <div className="homeContainer">{this.renderHomePage()}</div>
-      </>
-    )
+    return this.renderHomeOrSearchResults()
   }
 }
 

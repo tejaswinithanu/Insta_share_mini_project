@@ -7,7 +7,7 @@ import LoginForm from './components/LoginForm'
 import Home from './components/Home'
 import MyProfile from './components/MyProfile'
 import NotFound from './components/NotFound'
-import SearchResults from './components/SearchResults'
+
 import UserProfile from './components/UserProfile'
 
 import './App.css'
@@ -21,7 +21,7 @@ class App extends Component {
 
   onClickSearchIcon = value => {
     this.setState({searchInput: value, isSearchButtonClicked: true})
-    // console.log(value)
+    console.log(value)
   }
 
   OnOpenSearchInMobile = () => {
@@ -29,7 +29,11 @@ class App extends Component {
   }
 
   onCloseSearchInMobile = () => {
-    this.setState({isSearchOpenInMobile: false, searchInput: ''})
+    this.setState({
+      isSearchOpenInMobile: false,
+      searchInput: '',
+      isSearchButtonClicked: false,
+    })
   }
 
   render() {
@@ -44,7 +48,7 @@ class App extends Component {
           searchInput,
           isSearchButtonClicked,
           isSearchOpenInMobile,
-          onClickSearch: this.onClickSearch,
+          onClickSearchIcon: this.onClickSearchIcon,
           OnOpenSearchInMobile: this.OnOpenSearchInMobile,
           onCloseSearchInMobile: this.onCloseSearchInMobile,
         }}
@@ -54,7 +58,6 @@ class App extends Component {
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/my-profile" component={MyProfile} />
           <ProtectedRoute exact path="/users/:id" component={UserProfile} />
-          <Route component={SearchResults} />
           <Route path="/not-found" component={NotFound} />
           <Redirect to="not-found" />
         </Switch>

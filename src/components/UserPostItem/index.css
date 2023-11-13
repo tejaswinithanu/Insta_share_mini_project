@@ -49,6 +49,11 @@
   margin-left: 20px;
 }
 
+.profileName:hover {
+  color: #4094ef;
+  text-decoration: underline;
+}
+
 .linkName {
   text-decoration: none;
 }
