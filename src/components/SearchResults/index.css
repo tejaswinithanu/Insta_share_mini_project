@@ -1,0 +1,98 @@
+.search-results-container {
+  background-color: #fafafa;
+  min-height: 100vh;
+  padding: 25px 15vw;
+}
+
+.search-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.search-failure-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-failure-img {
+  width: 560px;
+  height: 274px;
+}
+
+.search-failure-text {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.search-retry-button {
+  color: white;
+  background-color: #4094ef;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 25px;
+}
+
+.search-heading {
+  color: #262626;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@media all and (max-width: 1024px) {
+  .search-heading {
+    display: none;
+  }
+}
+
+@media all and (min-width: 1025px) {
+  .searched-posts-container {
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.searched-posts-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0;
+}
+
+.search-not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-not-found-img {
+  width: 500px;
+  height: 409px;
+}
+
+.search-not-found-text {
+  color: #262626;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.not-found-text {
+  color: #989898;
+  font-weight: 400;
+  font-size: 20px;
+}
