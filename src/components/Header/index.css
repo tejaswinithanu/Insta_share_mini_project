@@ -123,6 +123,10 @@
   margin-left: 20px;
 }
 
+.navItem:hover {
+  color: #4094ef;
+}
+
 .linkItem {
   text-decoration: none;
 }
