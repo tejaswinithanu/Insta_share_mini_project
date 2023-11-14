@@ -108,7 +108,7 @@ class UserProfile extends Component {
 
   renderPosts = () => {
     const {userProfileDetails} = this.state
-    const {posts, postsCount} = userProfileDetails
+    const {posts} = userProfileDetails
 
     return (
       <div>
@@ -119,7 +119,7 @@ class UserProfile extends Component {
           <BsGrid3X3 className="grid-icon" />
           <p className="user-posts-text">Posts</p>
         </div>
-        {postsCount === 0 ? (
+        {posts.length === 0 ? (
           <div className="user-noPostsContainer">
             <BiCamera className="user-camIcon" />
             <h1 className="user-noPostsText">No Posts</h1>

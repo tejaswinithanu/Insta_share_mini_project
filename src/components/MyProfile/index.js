@@ -102,7 +102,7 @@ class MyProfile extends Component {
 
   renderPosts = () => {
     const {myProfileDetails} = this.state
-    const {posts, postsCount} = myProfileDetails
+    const {posts} = myProfileDetails
 
     return (
       <div>
@@ -113,7 +113,7 @@ class MyProfile extends Component {
           <BsGrid3X3 className="grid-icon" />
           <h1 className="postsText">Posts</h1>
         </div>
-        {postsCount === 0 ? (
+        {posts.length === 0 ? (
           <div className="noPostsContainer">
             <BiCamera className="camIcon" />
             <h1 className="noPostsText">No Posts</h1>
