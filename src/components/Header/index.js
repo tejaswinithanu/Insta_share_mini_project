@@ -38,6 +38,8 @@ const Header = props => {
         } = value
         const onClickSearchButton = () => {
           onClickSearchIcon(userInput)
+          const {history} = props
+          history.replace('/')
         }
         const onSearchOpen = () => {
           openMenu(false)

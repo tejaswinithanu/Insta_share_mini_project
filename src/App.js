@@ -21,7 +21,7 @@ class App extends Component {
 
   onClickSearchIcon = value => {
     this.setState({searchInput: value, isSearchButtonClicked: true})
-    console.log(value)
+    // console.log(value)
   }
 
   OnOpenSearchInMobile = () => {
