@@ -7,7 +7,6 @@
 .myProfileContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   min-height: 80vh;
   padding: 25px 15vw;
   background-color: #fafafa;

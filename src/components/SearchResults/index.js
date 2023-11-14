@@ -71,7 +71,7 @@ class SearchResults extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="loader-container search-loader" testid="loader">
+    <div className="loader-container search-loader" /* testid="loader" */>
       <Loader type="ThreeDots" color="#4094EF" height={30} width={30} />
     </div>
   )

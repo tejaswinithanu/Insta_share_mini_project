@@ -77,7 +77,7 @@ const Header = props => {
                   onChange={onChangeSearchInput}
                 />
                 <button
-                  testid="searchIcon"
+                  // testid="searchIcon"
                   type="button"
                   className="searchIcon"
                   onClick={onClickSearchButton}
@@ -154,7 +154,7 @@ const Header = props => {
                   onChange={onChangeSearchInput}
                 />
                 <button
-                  testid="searchIcon"
+                  // testid="searchIcon"
                   type="button"
                   className="searchIcon"
                   onClick={onClickSearchButton}
