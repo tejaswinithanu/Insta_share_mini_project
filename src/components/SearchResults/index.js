@@ -28,6 +28,15 @@ class SearchResults extends Component {
     this.getSearchedPosts()
   }
 
+  componentDidUpdate(prevProps) {
+    const {searchInput} = this.props
+    if (prevProps.searchInput !== searchInput) {
+      this.setState({searchInputValue: searchInput}, () => {
+        this.getSearchedPosts()
+      })
+    }
+  }
+
   getSearchedPosts = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const {searchInputValue} = this.state
